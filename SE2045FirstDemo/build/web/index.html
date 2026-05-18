@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>FPT Calculator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <center><div><h2>FPT CALCULATOR</h2></div></center>
+        <form action="calculate" method="POST">
+            <table>
+                <tr>
+                    <td>Number 1</td>
+                    <td><input type="text" name="num1"></td>
+                </tr>
+                <tr>
+                    <td>Operators</td>
+                    <td>
+                        <input type="radio" name="op" value="+" checked> Sum <br>
+                        <input type="radio" name="op" value="-" > Substract <br>
+                        <input type="radio" name="op" value="*" > Product <br>
+                        <input type="radio" name="op" value="/" > Quotien <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Number 2</td>
+                    <td><input type="text" name="num2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Calculate">
+                        <input type="reset" value="Clear">
+                    </td>
+                </tr>
+            </table>
+            
+        </form>
+    </body>
+</html>
