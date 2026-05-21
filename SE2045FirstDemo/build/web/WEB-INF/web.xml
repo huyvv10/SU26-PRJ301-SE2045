@@ -4,8 +4,32 @@
         <servlet-name>CalculateServlet</servlet-name>
         <servlet-class>controlers.CalculateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TinhToanServlet</servlet-name>
+        <servlet-class>controlers.TinhToanServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ElectricityCostServlet</servlet-name>
+        <servlet-class>controlers.ElectricityCostServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ExchangeCurrencyServlet</servlet-name>
+        <servlet-class>controlers.ExchangeCurrencyServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CalculateServlet</servlet-name>
         <url-pattern>/calculate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TinhToanServlet</servlet-name>
+        <url-pattern>/tinhtoan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ElectricityCostServlet</servlet-name>
+        <url-pattern>/electcost</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExchangeCurrencyServlet</servlet-name>
+        <url-pattern>/exchangecurrency</url-pattern>
     </servlet-mapping>
 </web-app>
