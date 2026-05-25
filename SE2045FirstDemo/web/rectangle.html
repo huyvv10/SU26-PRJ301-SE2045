@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Rectangle calculation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <center><div><h2>Rectangle calculation</h2></div></center>
+    <form action="calculate.jsp" method="post">
+        <table>
+            <tr>
+                <td>Length</td>
+                <td><input type="text" name="l"></td>
+            </tr>
+            <tr>
+                <td>Width</td>
+                <td><input type="text" name="w"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="radio" name="me" value="pe">Perimeter
+                    <input type="radio" name="me" value="ar" checked>Area
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Calculate">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    </body>
+</html>
