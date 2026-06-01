@@ -28,13 +28,13 @@
                                 rs = ll*ww;
                             if (me.equals("pe")){
                 %>        
-                <p>Perimeter of the rectangle is: <%=rs%></p>
+                <div id="txtOuput">Perimeter of the rectangle is: <%=rs%></div>
                 <%}else{%>
-                <p>Area of the rectangle is: <%=rs%></p>
+                <div id="txtOuput">Area of the rectangle is: <%=rs%></div>
                 <%}
-                } catch (Exception e){
-
-                }
+                } catch (Exception e){ %>
+                    <div id="txtError">Input must be a number.</div>
+               <% }
                 }
     %>
 
