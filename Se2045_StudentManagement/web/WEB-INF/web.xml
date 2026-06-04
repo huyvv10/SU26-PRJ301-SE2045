@@ -4,8 +4,16 @@
         <servlet-name>ShowStudentServlet</servlet-name>
         <servlet-class>controllers.ShowStudentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <servlet-class>controllers.DeleteStudentServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowStudentServlet</servlet-name>
         <url-pattern>/showstudents</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
 </web-app>

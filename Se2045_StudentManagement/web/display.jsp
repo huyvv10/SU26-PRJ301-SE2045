@@ -22,6 +22,7 @@
                 <th>Name</th>
                 <th>Age</th>
                 <th>DOB</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,10 @@
                 <td>${i.name}</td>
                 <td>${i.age}</td>
                 <td>${i.dob}</td>
+                <td>
+                    <a href="update?sid=${i.id}">Update</a> | 
+                    <a href="delete?sid=${i.id}">Delete</a>
+                </td>
             </tr>
             </c:forEach>
         </tbody>
