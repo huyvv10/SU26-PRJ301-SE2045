@@ -110,6 +110,8 @@ public class CalculatorServlet extends HttpServlet {
                 lstData.add(x);
                 //Set or store list to session with the name as lstData
                 session.setAttribute("lstData", lstData);
+                session.setAttribute("n1", n1);
+                session.setAttribute("n2", n2);
                 request.getRequestDispatcher("calculator.jsp")
                         .forward(request, response);
                 

@@ -18,11 +18,11 @@
             <table border="0">
                 <tr>
                     <td>Number 1</td>
-                    <td><input type="text" name="txtNum1" id="txtNum1" /></td>
+                    <td><input type="text" name="txtNum1" id="txtNum1" value="${n1}" /></td>
                 </tr>
                 <tr>
                     <td>Number 2</td>
-                    <td><input type="text" name="txtNum2" id="txtNum2" /></td>
+                    <td><input type="text" name="txtNum2" id="txtNum2" value="${n2}" /></td>
                 </tr>
                 <tr>
                     <td>Operators</td>
@@ -53,7 +53,7 @@
             <tbody>
                 <c:forEach var="i" items="${lstData}">
                 <tr>
-                    <td>${i.n1}</td>
+                    <td style="text-align: center">${i.n1}</td>
                     <td>${i.op}</td>
                     <td>${i.n2}</td>
                     <td>=</td>
