@@ -14,6 +14,7 @@
     </head>
     <body>
     <center><h1>STUDENT LIST</h1></center>
+    <p><a href="addstudent.jsp">Add new student</a></p>
     <table border="1">
         <thead>
             <tr>

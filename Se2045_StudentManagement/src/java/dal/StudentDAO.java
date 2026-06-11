@@ -50,6 +50,62 @@ public class StudentDAO {
             System.out.println(e);
         }
     }
-        
+    
+    public void addStudent(String id, String name, String age, String dob){
+        try {
+            DBContext db = new DBContext();
+            conn = db.getConnection();
+            String sql = "INSERT INTO tbStudent\n" +
+                         "VALUES (?, ?, ?, ?)";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ps.setString(2, name);
+            ps.setString(3, age);
+            ps.setString(4, dob);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+       
+    public Student getStudentById(String id){
+        try {
+            DBContext db = new DBContext();
+            conn = db.getConnection();
+            String sql = "SELECT * FROM tbStudent\n" +
+                         "WHERE id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()){                
+                String name = rs.getString("name");
+                int age = rs.getInt(3);
+                Date dob = rs.getDate(4);
+                Student x =  new Student(id, name, age, dob);
+                return x;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    public void updateStudent(String id, String name, String age, String dob){
+        try {
+            DBContext db = new DBContext();
+            conn = db.getConnection();
+            String sql = "UPDATE tbStudent\n" +
+                         "SET name = ?, age=?, dob=?\n" +
+                         "WHERE id = ?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, age);
+            ps.setString(3, dob);
+            ps.setString(4, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
     
 }
