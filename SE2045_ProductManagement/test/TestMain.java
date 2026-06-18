@@ -1,16 +1,34 @@
 
 import dal.CategoryDAO;
+import dal.ProductDAO;
 import java.util.ArrayList;
 import java.util.List;
 import models.Category;
+import models.Product;
 
 public class TestMain {
     public static void main(String[] args) {
-        CategoryDAO catDao = new CategoryDAO();
-        List<Category> catList = new ArrayList<>();
-        catList = catDao.getAllCategories();
-        for (Category c : catList) {
-            System.out.println(c.toString());
-        }
+//        CategoryDAO catDao = new CategoryDAO();
+//        List<Category> catList = new ArrayList<>();
+//        catList = catDao.getAllCategories();
+//        for (Category c : catList) {
+//            System.out.println(c.toString());
+//        }
+//        
+//        System.out.println("");
+//        ProductDAO prdDao = new ProductDAO();
+//        List<Product> prdList = new ArrayList<>();
+//        prdList = prdDao.getAllProducts();
+//        
+//        for (Product p : prdList) {
+//            System.out.println(p.toString());            
+//        }
+        
+        ProductDAO prdDao = new ProductDAO();
+        List<Product> prdList = new ArrayList<>();
+        prdList = prdDao.searchProductByName("sung");
+        for (Product p : prdList) {
+            System.out.println(p.toString());            
+        }        
     }
 }
