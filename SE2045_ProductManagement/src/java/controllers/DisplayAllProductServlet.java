@@ -87,7 +87,26 @@ public class DisplayAllProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            CategoryDAO catDao = new CategoryDAO();
+            List<Category> catList = new ArrayList<>();
+            catList = catDao.getAllCategories();
+            request.setAttribute("catList", catList);
+            
+            String strKwName = request.getParameter("txtKw");
+            String strCatId = request.getParameter("cboCat");
+
+            ProductDAO prdDao = new ProductDAO();
+            List<Product> prdList = new ArrayList<>();
+            prdList = prdDao.searchProductByName(strKwName, strCatId);
+            request.setAttribute("prdList", prdList);
+
+            request.getRequestDispatcher("displayproducts.jsp")
+                    .forward(request, response);
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     /** 

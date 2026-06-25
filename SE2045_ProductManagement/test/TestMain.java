@@ -26,7 +26,7 @@ public class TestMain {
         
         ProductDAO prdDao = new ProductDAO();
         List<Product> prdList = new ArrayList<>();
-        prdList = prdDao.searchProductByName("sung");
+        prdList = prdDao.searchProductByName("sung", "all");
         for (Product p : prdList) {
             System.out.println(p.toString());            
         }        
