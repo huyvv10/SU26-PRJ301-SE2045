@@ -30,6 +30,33 @@ public class ProductDAO extends DBContext{
         }
         return null;
     }
+
+    public List<Product> pagingProducts(int page, int numProductPerPage){
+        List<Product> productList = new ArrayList<>();
+        String sql = "SELECT * FROM tbProduct\n" +
+                     "ORDER BY Id\n" +
+                     "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, page*numProductPerPage-numProductPerPage);
+            ps.setInt(2, numProductPerPage);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                String id = rs.getString(1);
+                String name = rs.getString(2);
+                int qty = rs.getInt(3);
+                Date impDate = rs.getDate(4);
+                double price = rs.getDouble(5);
+                String catId = rs.getString(6);
+                Product x = new Product(id, name, qty, impDate, price, catId);
+                productList.add(x);
+            }
+            return productList;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
     
     public List<Product> searchProductByName(String kwName, String kwCat){
         List<Product> rsSearch = new ArrayList<>();

@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import javax.naming.InitialContext;
 import models.Category;
 import models.Product;
 
@@ -23,7 +24,7 @@ import models.Product;
  * @author VU VAN HUY
  */
 public class DisplayAllProductServlet extends HttpServlet {
-   
+    protected int size=7;
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -65,11 +66,27 @@ public class DisplayAllProductServlet extends HttpServlet {
             catList = catDao.getAllCategories();
             request.setAttribute("catList", catList);
 
+            String numPerPage = getServletContext().getInitParameter("prdPerPage");
+            size = Integer.parseInt(numPerPage);
+            
             ProductDAO prdDao = new ProductDAO();
             List<Product> prdList = new ArrayList<>();
             prdList = prdDao.getAllProducts();
+            
+            int totalProduct = prdList.size();
+            int totalPages = totalProduct%size ==0 ? totalProduct/size : totalProduct/size +1;
+            request.setAttribute("numPerPage", numPerPage);
+            request.setAttribute("totalPages", totalPages);
+            
+            String strPage = request.getParameter("page");
+            int page=1;
+            if (strPage==null)
+                page=1;
+            else
+                page=Integer.parseInt(strPage);
+            prdList = prdDao.pagingProducts(page, size);
             request.setAttribute("prdList", prdList);
-
+            
             request.getRequestDispatcher("displayproducts.jsp")
                     .forward(request, response);
         } catch (Exception e) {
@@ -98,9 +115,9 @@ public class DisplayAllProductServlet extends HttpServlet {
 
             ProductDAO prdDao = new ProductDAO();
             List<Product> prdList = new ArrayList<>();
-            prdList = prdDao.searchProductByName(strKwName, strCatId);
+            prdList = prdDao.searchProductByName(strKwName, strCatId);            
             request.setAttribute("prdList", prdList);
-
+                       
             request.getRequestDispatcher("displayproducts.jsp")
                     .forward(request, response);
             

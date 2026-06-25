@@ -24,9 +24,16 @@ public class TestMain {
 //            System.out.println(p.toString());            
 //        }
         
+//        ProductDAO prdDao = new ProductDAO();
+//        List<Product> prdList = new ArrayList<>();
+//        prdList = prdDao.searchProductByName("sung", "all");
+//        for (Product p : prdList) {
+//            System.out.println(p.toString());            
+//        }     
+        System.out.println("\n---Test paging---");
         ProductDAO prdDao = new ProductDAO();
         List<Product> prdList = new ArrayList<>();
-        prdList = prdDao.searchProductByName("sung", "all");
+        prdList = prdDao.pagingProducts(3, 7);
         for (Product p : prdList) {
             System.out.println(p.toString());            
         }        

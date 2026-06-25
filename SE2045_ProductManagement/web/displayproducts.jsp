@@ -65,5 +65,11 @@
             </tbody>
         </table> 
     </form>
+    <br />
+    <div style="text-align: center">
+    <c:forEach begin="${1}" end="${totalPages}" var="i">
+    <a href="displayproducts?page=${i}">${i}</a>
+    </c:forEach>
+    </div>
 </body>
 </html>
